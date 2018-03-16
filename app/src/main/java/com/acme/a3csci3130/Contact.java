@@ -16,16 +16,23 @@ public class Contact implements Serializable {
 
     public  String uid;
     public  String name;
-    public  String email;
+    public  String businessID;
+    public  String address;
+    public  String primBus;
+    public  String provTerr;
+
 
     public Contact() {
         // Default constructor required for calls to DataSnapshot.getValue
     }
 
-    public Contact(String uid, String name, String email){
+    public Contact(String uid, String name, String businessID, String address, String primBus, String provTerr){
         this.uid = uid;
         this.name = name;
-        this.email = email;
+        this.businessID = businessID;
+        this.address = address;
+        this.primBus = primBus;
+        this.provTerr = provTerr;
     }
 
     @Exclude
@@ -33,7 +40,10 @@ public class Contact implements Serializable {
         HashMap<String, Object> result = new HashMap<>();
         result.put("uid", uid);
         result.put("name", name);
-        result.put("email", email);
+        result.put("businessID", businessID);
+        result.put("address", address);
+        result.put("primarybusiness", primBus);
+        result.put("province/territory", provTerr);
 
         return result;
     }

@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Button;
 
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.database.FirebaseDatabase;
@@ -16,6 +17,8 @@ public class MainActivity extends Activity {
 
     private ListView contactListView;
     private FirebaseListAdapter<Contact> firebaseAdapter;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +36,7 @@ public class MainActivity extends Activity {
         contactListView = (ListView) findViewById(R.id.listView);
 
         //Set up the List View
-       firebaseAdapter = new FirebaseListAdapter<Contact>(this, Contact.class,
+        firebaseAdapter = new FirebaseListAdapter<Contact>(this, Contact.class,
                 android.R.layout.simple_list_item_1, appData.firebaseReference) {
             @Override
             protected void populateView(View v, Contact model, int position) {
@@ -50,6 +53,8 @@ public class MainActivity extends Activity {
                 showDetailView(person);
             }
         });
+
+
     }
 
     public void createContactButton(View v)
@@ -57,6 +62,7 @@ public class MainActivity extends Activity {
         Intent intent=new Intent(this, CreateContactAcitivity.class);
         startActivity(intent);
     }
+
 
     private void showDetailView(Contact person)
     {
@@ -67,4 +73,8 @@ public class MainActivity extends Activity {
 
 
 
+
+
+
 }
+
